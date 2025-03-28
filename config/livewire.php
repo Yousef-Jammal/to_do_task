@@ -157,4 +157,8 @@ return [
     */
 
     'pagination_theme' => 'tailwind',
+
+
+
+    // 'load_alpine' => true, 
 ];

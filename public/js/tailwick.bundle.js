@@ -423,6 +423,26 @@ File: Common Plugins Js File
             if (modalId) {
                 element.addEventListener('click', function () {
                     toggleElementState(modalId, true, 200);
+                    let currentModal = document.getElementById(modalId);
+
+                    if(element.getAttribute('data-this-id')){
+                        let userId = element.getAttribute('data-this-id');
+                        let userIdInput = currentModal.querySelector('[name=this_id]');
+                        userIdInput.value = userId;
+                    }
+                    // update user info
+                    if(element.getAttribute('data-user-info')){
+                        let userInfo = JSON.parse(element.getAttribute('data-user-info'));
+
+                        let userIdInput = currentModal.querySelector('[name=this_id]');
+                        let userNameEnInput = currentModal.querySelector('[name=name]');
+                        let userEmailInput = currentModal.querySelector('[name=email]');
+
+                        userIdInput.value = userInfo.id;
+                        userNameInput.value = userInfo.name;
+                        userEmailInput.value = userInfo.email;
+                    }
+
                 });
             }
         });
